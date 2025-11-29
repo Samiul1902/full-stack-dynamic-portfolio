@@ -3,25 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Project;
+use App\Models\AcademicInfo;
 
-class ProjectInfoController extends Controller
+class AcademicInfoController extends Controller
 {
     function index(){
-        $projects = Project::all();
-
-        return view('projects', compact('projects'));
+        $projects = AcademicInfo::all();
+        return view('academic-info', compact('projects'));
     }
 
     function store(Request $request){
         $projectName = $request->project_name;
         $tool = $request->tool;
-
-        $project = new Project();
+        $project = new AcademicInfo();
         $project->name = $projectName;
         $project->tool = $tool;
         $project->save();
-        dd("Project saved successfully!");
     }
-    
 }
