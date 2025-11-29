@@ -6,7 +6,12 @@
     <title>My Portfolio</title>
 </head>
 <body>
-    @include('partials.header')
-    @yield('content')
+    <header>
+        @include('partials.header')
+    </header>
+    <main>
+        @yield('content')
+    </main>
+    
 </body>
 </html>
