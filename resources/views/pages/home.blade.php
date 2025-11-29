@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section("content")
+@section("body")
 <style>
     /* ===== MAIN / BODY ===== */
 
@@ -206,20 +206,12 @@
 
     <!-- SKILLS SECTION -->
     <section class="section" id="skills">
-        <h2>Skills</h2>
-        <p>
-            Add your main technologies here, for example: HTML, CSS, JavaScript, Laravel, PHP,
-            MySQL, REST APIs, and tools you frequently use.
-        </p>
+        @include('pages.skills')
     </section>
 
     <!-- PROJECTS SECTION -->
     <section class="section" id="projects">
-        <h2>Projects</h2>
-        <p>
-            Briefly describe a few key projects, linking to GitHub or live demos,
-            and mention what tech stack you used for each one.
-        </p>
+        @include('pages.project')
     </section>
 </main>
 
