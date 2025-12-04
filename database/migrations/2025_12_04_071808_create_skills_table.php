@@ -11,9 +11,9 @@ return new class extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('category');          // frontend, backend, ml, tools, iot
+            $table->string('category');           // frontend, backend, ml, tools, iot, database
             $table->unsignedTinyInteger('level'); // 0–100
-            $table->string('icon')->nullable();   // optional icon class or image
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }

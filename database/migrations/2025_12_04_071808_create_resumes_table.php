@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::create('resumes', function (Blueprint $table) {
             $table->id();
-            $table->string('file_path');          // storage path to CV PDF
-            $table->string('headline')->nullable(); // short title shown on site
-            $table->text('summary')->nullable();    // brief profile summary
+            $table->string('file_path');
+            $table->string('headline')->nullable();
+            $table->text('summary')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

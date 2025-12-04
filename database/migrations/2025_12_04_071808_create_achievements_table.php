@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('institution')->nullable();
             $table->date('achieved_at')->nullable();
             $table->text('description')->nullable();
-            $table->string('certificate_url')->nullable(); // link to PDF or image
+            $table->string('certificate_url')->nullable();
             $table->timestamps();
         });
     }

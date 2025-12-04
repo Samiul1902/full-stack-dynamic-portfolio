@@ -10,12 +10,12 @@ return new class extends Migration
     {
         Schema::create('study_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('level');            // BSc in CSE, HSC, SSC, etc.
+            $table->string('level');
             $table->string('institution');
             $table->year('start_year')->nullable();
-            $table->year('end_year')->nullable(); // null if ongoing
-            $table->string('grade')->nullable();  // CGPA/Grade
-            $table->text('details')->nullable();  // short description
+            $table->year('end_year')->nullable();
+            $table->string('grade')->nullable();
+            $table->text('details')->nullable();
             $table->timestamps();
         });
     }
