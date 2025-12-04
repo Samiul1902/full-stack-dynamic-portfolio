@@ -77,35 +77,42 @@
     </div>
 </section>
 
-{{-- SKILLS --}}
+{{-- SKILLS (debug-simple version) --}}
 <section id="skills">
     <div class="container">
         <h2 class="section-title">Skills</h2>
 
-        @php
-            $grouped = $skills->groupBy('category');
-        @endphp
+        @if($skills->isEmpty())
+            <p>No skills found in database.</p>
+        @else
+            @php
+                $grouped = $skills->groupBy('category');
+            @endphp
 
-        <div class="skills-grid">
-            @foreach($grouped as $category => $items)
-                <div class="skill-column fade-hidden">
-                    <h3 class="skill-category-title">{{ ucfirst($category) }}</h3>
-                    @foreach($items as $skill)
-                        <div class="skill-row">
-                            <div class="skill-row-header">
-                                <span>{{ $skill->name }}</span>
-                                <span>{{ $skill->level }}%</span>
+            <div class="skills-grid">
+                @foreach($grouped as $category => $items)
+                    <div class="skill-card">
+                        <h3 class="skill-category-title">{{ ucfirst($category) }}</h3>
+
+                        @foreach($items as $skill)
+                            <div class="skill-line" style="--level: {{ $skill->level }}%;">
+                                <div class="skill-line-header">
+                                    <span class="skill-name">{{ $skill->name }}</span>
+                                    <span class="skill-percent">{{ $skill->level }}%</span>
+                                </div>
+                                <div class="skill-bar-track">
+                                    <div class="skill-bar-fill"></div>
+                                    <div class="skill-bar-knob"></div>
+                                </div>
                             </div>
-                            <div class="skill-bar">
-                                <div class="skill-bar-fill" data-level="{{ $skill->level }}"></div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @endforeach
-        </div>
+                        @endforeach
+                    </div>
+                @endforeach
+            </div>
+        @endif
     </div>
 </section>
+
 
 {{-- STUDY HISTORY --}}
 <section id="study">
@@ -183,7 +190,12 @@
 <section id="contact">
     <div class="container">
         <h2 class="section-title">Contact</h2>
-        <p>Email: your.email@example.com</p>
+        <p>Email: sakib22205101472@diu.edu.bd</p>
+        <p>Contact Number: 01902962692</p>
+        <p>Facebook ID: 01902962692</p>
+        <p>LinkedIn ID: 01902962692</p>
+        <p>Github: 01902962692</p>
+
     </div>
 </section>
 @endsection

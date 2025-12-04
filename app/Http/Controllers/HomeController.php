@@ -17,7 +17,10 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
-        $skills = Skill::orderBy('category')->orderByDesc('level')->get();
+        $skills = Skill::orderBy('category')
+            ->orderByDesc('level')
+            ->get();
+
         $study = StudyHistory::orderByDesc('start_year')->get();
         $achievements = Achievement::orderByDesc('achieved_at')->get();
         $resume = Resume::latest('published_at')->first();
