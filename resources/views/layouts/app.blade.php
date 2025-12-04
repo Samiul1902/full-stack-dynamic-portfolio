@@ -7,7 +7,7 @@
     <title>@yield('title', 'Samiul • Full‑Stack Portfolio')</title>
 
     {{-- Favicon: place favicon.png in public/ or adjust path --}}
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/481773494_3447077962266966_1117281271806353893_n.jpg') }}">
     {{-- If you use /public/images/favicon.png instead, use: --}}
     {{-- <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}"> --}}
 

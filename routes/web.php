@@ -10,7 +10,6 @@ use App\Http\Controllers\ResumeController;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-| These routes handle all public pages of your portfolio.
 */
 
 Route::get('/', [HomeController::class, 'index'])
@@ -23,10 +22,10 @@ Route::get('/projects', [ProjectInfoController::class, 'index'])
 Route::get('/projects/{slug}', [ProjectInfoController::class, 'show'])
     ->name('projects.show');
 
-// Academic info (study history + achievements) – optional separate page
+// Academic info page (study history + achievements)
 Route::get('/academic', [AcademicInfoController::class, 'index'])
     ->name('academic.index');
 
-// Resume download (used by route('resume.download') in Blade)
+// Resume download – used by route('resume.download') in Blade
 Route::get('/resume/download', [ResumeController::class, 'download'])
     ->name('resume.download');
