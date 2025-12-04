@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'My Portfolio')</title>
+
+    <title>@yield('title', 'Samiul • Full‑Stack Portfolio')</title>
+
+    {{-- Favicon: place favicon.png in public/ or adjust path --}}
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    {{-- If you use /public/images/favicon.png instead, use: --}}
+    {{-- <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}"> --}}
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>

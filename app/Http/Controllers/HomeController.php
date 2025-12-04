@@ -10,21 +10,29 @@ use App\Models\Resume;
 
 class HomeController extends Controller
 {
+    /**
+     * Display the main portfolio page.
+     */
     public function index()
     {
+        // All featured projects sorted by display_order
         $featuredProjects = Project::where('is_featured', true)
             ->orderBy('display_order')
-            ->take(3)
             ->get();
 
+        // All skills sorted by category then level
         $skills = Skill::orderBy('category')
             ->orderByDesc('level')
             ->get();
 
+        // Study history and achievements
         $study = StudyHistory::orderByDesc('start_year')->get();
         $achievements = Achievement::orderByDesc('achieved_at')->get();
+
+        // Latest resume entry
         $resume = Resume::latest('published_at')->first();
 
+        // Pass everything to the home view
         return view('home', compact(
             'featuredProjects',
             'skills',

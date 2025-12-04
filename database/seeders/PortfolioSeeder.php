@@ -20,60 +20,61 @@ class PortfolioSeeder extends Seeder
         Project::updateOrCreate(
             ['slug' => 'smart-salon-reservation-system'],
             [
-                'title' => 'Smart Salon Reservation System',
-                'category' => 'web',
+                'title'          => 'Smart Salon Reservation System',
+                'category'       => 'web',
                 'short_description' => 'Full-stack Laravel reservation & management system.',
-                'long_description' => 'Built with Laravel and MySQL, includes customer booking, admin dashboard and reports.',
-                'github_url' => 'https://github.com/rafi1467/Smart-Salon-Beauty-Parlour-Reservation-Management-System',
-                'live_url' => null,
-                'tech_stack' => ['Laravel', 'MySQL', 'PHP', 'JavaScript'],
-                'is_featured' => true,
-                'display_order' => 1,
+                'long_description'  => 'Built with Laravel and MySQL, includes customer booking, admin dashboard and reports.',
+                'github_url'     => 'https://github.com/rafi1467/Smart-Salon-Beauty-Parlour-Reservation-Management-System',
+                'live_url'       => null,
+                'tech_stack'     => ['Laravel', 'MySQL', 'PHP', 'JavaScript'],
+                'is_featured'    => true,
+                'display_order'  => 1,
             ]
         );
 
         Project::updateOrCreate(
             ['slug' => 'kidney-cancer-detection'],
             [
-                'title' => 'Kidney Cancer Detection',
-                'category' => 'ml',
+                'title'          => 'Kidney Cancer Detection',
+                'category'       => 'Deep Learning',
                 'short_description' => 'Deep learning pipeline for kidney cancer detection from medical images.',
-                'long_description' => null,
-                'github_url' => 'https://github.com/Samiul1902/kidney_cancer_detection_project',
-                'live_url' => null,
-                'tech_stack' => ['Python', 'PyTorch', 'OpenCV'],
-                'is_featured' => true,
-                'display_order' => 2,
+                'long_description'  => null,
+                'github_url'     => 'https://github.com/Samiul1902/kidney_cancer_detection_project',
+                'live_url'       => null,
+                'tech_stack'     => ['Python', 'PyTorch', 'OpenCV'],
+                'is_featured'    => true,
+                'display_order'  => 2,
             ]
         );
 
+        // FIX: use a different slug for Diabetic Predictor
         Project::updateOrCreate(
-            ['slug' => 'kidney-cancer-detection'],
+            ['slug' => 'diabetic-predictor'],
             [
-                'title' => 'Diabetic Predictor',
-                'category' => 'ml',
-                'short_description' => 'Deep learning pipeline for kidney cancer detection from medical images.',
-                'long_description' => null,
-                'github_url' => 'https://github.com/Samiul1902/diabetes-prediction-flask-app',
-                'live_url' => null,
-                'tech_stack' => ['Python', 'Scikit-learn', 'flask'],
-                'is_featured' => true,
-                'display_order' => 3,
+                'title'          => 'Diabetic Predictor',
+                'category'       => 'ml',
+                'short_description' => 'Machine learning model to predict diabetes from patient data.',
+                'long_description'  => null,
+                'github_url'     => 'https://github.com/Samiul1902/diabetes-prediction-flask-app',
+                'live_url'       => null,
+                'tech_stack'     => ['Python', 'Scikit-learn', 'Flask'],
+                'is_featured'    => true,   // set true to appear in Featured section
+                'display_order'  => 3,
             ]
         );
 
         Project::updateOrCreate(
             ['slug' => 'iot-rc-tank'],
             [
-                'title' => 'IoT RC Tank',
-                'category' => 'iot',
+                'title'          => 'IoT RC Tank',
+                'category'       => 'iot',
                 'short_description' => 'WiFi-controlled RC tank with onboard camera and sensors.',
-                'long_description' => null,
-                'github_url' => 'https://github.com/youruser/your_rc_tank_repo',
-                'live_url' => null,
-                'tech_stack' => ['ESP32', 'C++', 'MQTT'],
-                'is_featured' => false,
-                'display_order' => 4,
+                'long_description'  => null,
+                'github_url'     => 'https://github.com/youruser/your_rc_tank_repo',
+                'live_url'       => null,
+                'tech_stack'     => ['ESP32', 'C++', 'MQTT'],
+                'is_featured'    => false,  // stays hidden from "Featured Projects"
+                'display_order'  => 4,
             ]
         );
 
@@ -81,14 +82,14 @@ class PortfolioSeeder extends Seeder
         Skill::truncate();
 
         Skill::insert([
-            ['name' => 'Python',                'category' => 'backend',  'level' => 90],
-            ['name' => 'PyTorch',               'category' => 'Machine Learning and Deep learning', 'level' => 80],
-            ['name' => 'TensorFlow',            'category' => 'Machine Learning and Deep learning', 'level' => 80],
-            ['name' => 'Laravel',               'category' => 'backend',  'level' => 80],
-            ['name' => 'HTML/CSS',              'category' => 'frontend', 'level' => 90],
-            ['name' => 'JavaScript',            'category' => 'frontend', 'level' => 85],
-            ['name' => 'MySQL',                 'category' => 'database', 'level' => 80],
-            ['name' => 'IoT & Microcontrollers','category' => 'iot',      'level' => 75],
+            ['name' => 'Python',                 'category' => 'backend',  'level' => 90],
+            ['name' => 'PyTorch',                'category' => 'Machine Learning and Deep learning', 'level' => 80],
+            ['name' => 'TensorFlow',             'category' => 'Machine Learning and Deep learning', 'level' => 80],
+            ['name' => 'Laravel',                'category' => 'backend',  'level' => 80],
+            ['name' => 'HTML/CSS',               'category' => 'frontend', 'level' => 90],
+            ['name' => 'JavaScript',             'category' => 'frontend', 'level' => 85],
+            ['name' => 'MySQL',                  'category' => 'database', 'level' => 80],
+            ['name' => 'IoT & Microcontrollers', 'category' => 'iot',      'level' => 75],
         ]);
 
         // -------- Study history --------
