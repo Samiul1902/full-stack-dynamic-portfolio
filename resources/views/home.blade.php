@@ -7,9 +7,12 @@
     <div class="container hero-grid">
         <div class="hero-left">
             <h1>Hi, I'm Samiul</h1>
-            <p>
-                {{ $resume?->summary ?? 'Computer Science student working on full‑stack, ML and IoT projects.' }}
+
+            <p class="hero-about">
+                A CSE student passionate about full‑stack web development, deep learning for medical
+                imaging, and IoT projects like RC tanks and smart systems.
             </p>
+
             <div class="hero-buttons">
                 <a href="#projects" class="btn-primary">View Projects</a>
                 @if($resume)
@@ -42,7 +45,7 @@
         @else
             <div class="projects-grid">
                 @foreach($featuredProjects as $project)
-                    <article class="project-card">
+                    <article class="project-card fade-hidden">
                         <h3>{{ $project->title }}</h3>
                         <p class="project-category">{{ strtoupper($project->category ?? 'GENERAL') }}</p>
                         <p class="project-desc">{{ $project->short_description }}</p>
@@ -85,7 +88,7 @@
 
         <div class="skills-grid">
             @foreach($grouped as $category => $items)
-                <div class="skill-column">
+                <div class="skill-column fade-hidden">
                     <h3 class="skill-category-title">{{ ucfirst($category) }}</h3>
                     @foreach($items as $skill)
                         <div class="skill-row">
@@ -110,7 +113,7 @@
         <h2 class="section-title">Study History</h2>
         <div class="timeline">
             @foreach($study as $item)
-                <div class="timeline-item">
+                <div class="timeline-item fade-hidden">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">
@@ -137,7 +140,7 @@
         <h2 class="section-title">Academic Achievements</h2>
         <div class="timeline">
             @foreach($achievements as $ach)
-                <div class="timeline-item">
+                <div class="timeline-item fade-hidden">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">
