@@ -127,10 +127,10 @@ class PortfolioSeeder extends Seeder
 
         Achievement::insert([
             [
-                'title'         => 'Dean’s List',
+                'title'         => 'Unlock The Algorithm Contest',
                 'institution'   => 'Daffodil International University',
                 'achieved_at'   => '2024-06-01',
-                'description'   => 'Awarded for outstanding academic performance.',
+                'description'   => 'Secured 2nd place among 100+ teams in university-level algorithm competition.',
                 'certificate_url' => null,
             ],
             [
