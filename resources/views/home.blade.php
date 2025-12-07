@@ -17,7 +17,7 @@
                 <a href="#projects" class="btn-primary">View Projects</a>
                 @if($resume)
                     <a href="{{ route('resume.download') }}" class="btn-primary btn-outline">
-                        Download C
+                        Download CV
                     </a>
                 @endif
             </div>
