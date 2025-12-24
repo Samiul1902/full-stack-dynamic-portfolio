@@ -45,7 +45,7 @@
         @else
             <div class="projects-grid">
                 @foreach($featuredProjects as $project)
-                    <article class="project-card fade-hidden">
+                    <article class="project-card">
                         <h3>{{ $project->title }}</h3>
                         <p class="project-category">{{ strtoupper($project->category ?? 'GENERAL') }}</p>
                         <p class="project-desc">{{ $project->short_description }}</p>
@@ -120,7 +120,7 @@
         <h2 class="section-title">Study History</h2>
         <div class="timeline">
             @foreach($study as $item)
-                <div class="timeline-item fade-hidden">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">
@@ -147,7 +147,7 @@
         <h2 class="section-title">Academic Achievements</h2>
         <div class="timeline">
             @foreach($achievements as $ach)
-                <div class="timeline-item fade-hidden">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-date">
