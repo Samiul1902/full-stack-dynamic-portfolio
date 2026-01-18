@@ -8,12 +8,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+
 class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $projects = Project::latest()->get();
         return view('admin.projects.index', compact('projects'));
@@ -50,10 +53,12 @@ class ProjectController extends Controller
             $validated['image_url'] = '/storage/' . $path;
         }
 
-        // Handle Tech Stack (convert array to JSON if needed, or string)
-        // For simplicity, let's assume the DB expects a JSON castable array or valid string.
-        // If the model casts it, we pass array. If not, json_encode.
-        // We should check the model. Defaulting to passing strict input.
+        // Handle Tech Stack
+        if ($request->has('tech_stack')) {
+             $validated['tech_stack'] = is_string($request->input('tech_stack')) 
+                ? json_decode($request->input('tech_stack'), true) 
+                : $request->input('tech_stack');
+        }
 
         Project::create($validated);
 

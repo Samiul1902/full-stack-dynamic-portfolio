@@ -29,8 +29,9 @@ class HomeController extends Controller
         $study = StudyHistory::orderByDesc('start_year')->get();
         $achievements = Achievement::orderByDesc('achieved_at')->get();
 
-        // Latest resume entry
+        // Latest resume entry or check for file existence
         $resume = Resume::latest('published_at')->first();
+        $hasResume = $resume || \Illuminate\Support\Facades\Storage::disk('public')->exists('cv/samiul_cv.pdf');
 
         // Pass everything to the home view
         return view('home', compact(
@@ -38,7 +39,8 @@ class HomeController extends Controller
             'skills',
             'study',
             'achievements',
-            'resume'
+            'resume',
+            'hasResume'
         ));
     }
 }

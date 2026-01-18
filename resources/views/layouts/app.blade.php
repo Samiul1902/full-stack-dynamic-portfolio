@@ -30,11 +30,12 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen {{ (request()->is('/') || request()->routeIs('home')) ? '' : 'bg-gray-100 dark:bg-gray-900' }}">
+        <div class="min-h-screen {{ (request()->is('/') || request()->routeIs('home')) ? '' : 'bg-slate-950' }}">
             @if (request()->is('/') || request()->routeIs('home'))
                 @include('partials.header')
             @else
                 @include('layouts.navigation')
+                <div class="h-20"></div> <!-- Spacer for fixed nav -->
             @endif
 
             <!-- Page Heading -->

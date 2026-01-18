@@ -12,15 +12,21 @@ class ResumeController extends Controller
      */
     public function download()
     {
-        // Get latest resume row from DB
-        $resume = Resume::latest('published_at')->firstOrFail();
+        // Try to get from DB to check logic, but prefer strict file path for reliability
+        $resume = Resume::latest('published_at')->first();
+        $filePath = $resume ? $resume->file_path : 'cv/samiul_cv.pdf';
+        
+        // Ensure we are using the correct absolute path for response()->download
+        // Storage::disk('public')->path() gives the full server path
+        $fullPath = Storage::disk('public')->path($filePath);
 
-        // Check file exists on the "public" disk
-        if (! Storage::disk('public')->exists($resume->file_path)) {
+        if (!file_exists($fullPath)) {
             abort(404, 'Resume file not found');
         }
 
-        // Download the file
-        return Storage::disk('public')->download($resume->file_path);
+        // Force download with specific name using standard naming
+        return response()->download($fullPath, 'Samiul_Hasan_Sakib_CV.pdf', [
+            'Content-Type' => 'application/pdf',
+        ]);
     }
 }
