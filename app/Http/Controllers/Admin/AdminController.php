@@ -17,7 +17,8 @@ class AdminController extends Controller
         $skillCount = Skill::count();
         $studyCount = StudyHistory::count();
         $achievementCount = Achievement::count();
+        $resumeCount = \App\Models\Resume::count();
         
-        return view('admin.dashboard', compact('projectCount', 'skillCount', 'studyCount', 'achievementCount'));
+        return view('admin.dashboard', compact('projectCount', 'skillCount', 'studyCount', 'achievementCount', 'resumeCount'));
     }
 }

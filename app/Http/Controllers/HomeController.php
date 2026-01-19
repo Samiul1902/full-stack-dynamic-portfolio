@@ -8,6 +8,8 @@ use App\Models\StudyHistory;
 use App\Models\Achievement;
 use App\Models\Resume;
 
+use App\Models\Testimonial;
+
 class HomeController extends Controller
 {
     /**
@@ -28,6 +30,7 @@ class HomeController extends Controller
         // Study history and achievements
         $study = StudyHistory::orderByDesc('start_year')->get();
         $achievements = Achievement::orderByDesc('achieved_at')->get();
+        $testimonials = Testimonial::latest()->get();
 
         // Latest resume entry or check for file existence
         $resume = Resume::latest('published_at')->first();
@@ -40,7 +43,8 @@ class HomeController extends Controller
             'study',
             'achievements',
             'resume',
-            'hasResume'
+            'hasResume',
+            'testimonials'
         ));
     }
 }

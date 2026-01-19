@@ -9,8 +9,9 @@
         <link rel="icon" type="image/jpeg" href="{{ asset('images/481773494_3447077962266966_1117281271806353893_n.jpg') }}">
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
         <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
@@ -20,12 +21,35 @@
                 theme: {
                     extend: {
                         fontFamily: {
-                            sans: ['Figtree', 'ui-sans-serif', 'system-ui', 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+                            sans: ['Outfit', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
                         },
+                        colors: {
+                            slate: {
+                                850: '#151e32',
+                                900: '#0f172a',
+                                950: '#020617',
+                            }
+                        }
                     },
                 },
             }
         </script>
+        <style>
+            /* Custom Scrollbar */
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #0f172a; 
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #334155; 
+                border-radius: 5px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #475569; 
+            }
+        </style>
         <script src="//unpkg.com/alpinejs" defer></script>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
@@ -40,7 +64,7 @@
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
+                <header class="bg-slate-900 border-b border-slate-800 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

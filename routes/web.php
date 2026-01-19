@@ -22,6 +22,12 @@ Route::get('/projects', [ProjectInfoController::class, 'index'])->name('projects
 Route::get('/projects/{slug}', [ProjectInfoController::class, 'show'])->name('projects.show');
 
 Route::get('/academic', [AcademicInfoController::class, 'index'])->name('academic.index');
+Route::get('/academic', [AcademicInfoController::class, 'index'])->name('academic.index');
+
+// Contact Form
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+// Download CV Route
 Route::get('/resume/download', [ResumeController::class, 'download'])->name('resume.download');
 
 // Authentication / Admin Routes
@@ -46,6 +52,16 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // Achievement Management
     Route::resource('achievements', \App\Http\Controllers\Admin\AchievementController::class);
+
+    // Resume Management
+    Route::resource('resumes', \App\Http\Controllers\Admin\ResumeController::class);
+
+    // Testimonial Management
+    Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class);
+
+    // Blog System
+    Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
 });
 
 Route::middleware('auth')->group(function () {

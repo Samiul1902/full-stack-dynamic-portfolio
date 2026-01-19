@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-bold text-xl text-white leading-tight uppercase tracking-widest">
             {{ __('Admin Dashboard') }}
         </h2>
     </x-slot>
@@ -13,31 +13,53 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <!-- Projects Stats -->
-                        <div class="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg">
-                            <h4 class="text-xl font-semibold">Projects</h4>
-                            <p class="text-3xl font-bold">{{ $projectCount }}</p>
-                            <a href="{{ route('admin.projects.index') }}" class="text-blue-600 dark:text-blue-300 hover:underline mt-2 block">Manage Projects &rarr;</a>
+                        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl overflow-hidden group hover:border-indigo-500/50 transition-all duration-300">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-full blur-2xl -mr-12 -mt-12"></div>
+                            <h4 class="text-lg font-medium text-slate-400">Projects</h4>
+                            <p class="text-4xl font-bold text-white mt-2 mb-4">{{ $projectCount }}</p>
+                            <a href="{{ route('admin.projects.index') }}" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 text-sm font-semibold transition-colors">
+                                Manage Projects <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
                         </div>
 
                         <!-- Skills Stats -->
-                        <div class="bg-green-100 dark:bg-green-900 p-4 rounded-lg">
-                            <h4 class="text-xl font-semibold">Skills</h4>
-                            <p class="text-3xl font-bold">{{ $skillCount }}</p>
-                            <a href="{{ route('admin.skills.index') }}" class="text-green-600 dark:text-green-300 hover:underline mt-2 block">Manage Skills &rarr;</a>
+                        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl overflow-hidden group hover:border-emerald-500/50 transition-all duration-300">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl -mr-12 -mt-12"></div>
+                            <h4 class="text-lg font-medium text-slate-400">Skills</h4>
+                            <p class="text-4xl font-bold text-white mt-2 mb-4">{{ $skillCount }}</p>
+                            <a href="{{ route('admin.skills.index') }}" class="inline-flex items-center text-emerald-400 hover:text-emerald-300 text-sm font-semibold transition-colors">
+                                Manage Skills <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
                         </div>
 
                          <!-- Study History Stats -->
-                         <div class="bg-purple-100 dark:bg-purple-900 p-4 rounded-lg">
-                            <h4 class="text-xl font-semibold">Education</h4>
-                            <p class="text-3xl font-bold">{{ $studyCount }}</p>
-                            <a href="{{ route('admin.study-history.index') }}" class="text-purple-600 dark:text-purple-300 hover:underline mt-2 block">Manage Education &rarr;</a>
+                         <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl overflow-hidden group hover:border-purple-500/50 transition-all duration-300">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl -mr-12 -mt-12"></div>
+                            <h4 class="text-lg font-medium text-slate-400">Education</h4>
+                            <p class="text-4xl font-bold text-white mt-2 mb-4">{{ $studyCount }}</p>
+                            <a href="{{ route('admin.study-history.index') }}" class="inline-flex items-center text-purple-400 hover:text-purple-300 text-sm font-semibold transition-colors">
+                                Manage Education <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
                         </div>
 
-                         <!-- Achievements Stats -->
-                         <div class="bg-yellow-100 dark:bg-yellow-900 p-4 rounded-lg">
-                            <h4 class="text-xl font-semibold">Awards</h4>
-                            <p class="text-3xl font-bold">{{ $achievementCount }}</p>
-                            <a href="{{ route('admin.achievements.index') }}" class="text-yellow-600 dark:text-yellow-300 hover:underline mt-2 block">Manage Awards &rarr;</a>
+                        <!-- Achievements Stats -->
+                         <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl overflow-hidden group hover:border-amber-500/50 transition-all duration-300">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl -mr-12 -mt-12"></div>
+                            <h4 class="text-lg font-medium text-slate-400">Awards</h4>
+                            <p class="text-4xl font-bold text-white mt-2 mb-4">{{ $achievementCount }}</p>
+                            <a href="{{ route('admin.achievements.index') }}" class="inline-flex items-center text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors">
+                                Manage Awards <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+
+                         <!-- Resume Stats -->
+                         <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl overflow-hidden group hover:border-pink-500/50 transition-all duration-300">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-pink-500/10 rounded-full blur-2xl -mr-12 -mt-12"></div>
+                            <h4 class="text-lg font-medium text-slate-400">Resumes</h4>
+                            <p class="text-4xl font-bold text-white mt-2 mb-4">{{ $resumeCount }}</p>
+                            <a href="{{ route('admin.resumes.index') }}" class="inline-flex items-center text-pink-400 hover:text-pink-300 text-sm font-semibold transition-colors">
+                                Manage CVs <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -26,15 +26,36 @@
                         </div>
 
                         <!-- Category -->
-                         <div class="mb-6">
-                            <label for="category" class="block text-slate-300 text-sm font-bold mb-2 uppercase tracking-wide">Category:</label>
-                             <select name="category" id="category" class="bg-slate-900 border border-slate-700 rounded-lg w-full py-3 px-4 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors">
-                                <option value="Frontend" {{ $skill->category == 'Frontend' ? 'selected' : '' }}>Frontend</option>
-                                <option value="Backend" {{ $skill->category == 'Backend' ? 'selected' : '' }}>Backend</option>
-                                <option value="Database" {{ $skill->category == 'Database' ? 'selected' : '' }}>Database</option>
-                                <option value="Tools" {{ $skill->category == 'Tools' ? 'selected' : '' }}>Tools/DevOps</option>
-                                <option value="Other" {{ $skill->category == 'Other' ? 'selected' : '' }}>Other</option>
+                         <div class="mb-6" x-data="{ 
+                            selected: '{{ in_array($skill->category, ['Frontend', 'Backend', 'Database', 'Tools', 'IoT', 'Mobile', 'Machine Learning', 'AI']) ? $skill->category : 'Other' }}', 
+                            custom: '{{ in_array($skill->category, ['Frontend', 'Backend', 'Database', 'Tools', 'IoT', 'Mobile', 'Machine Learning', 'AI']) ? '' : $skill->category }}',
+                            get finalVal() { return this.selected === 'Other' ? this.custom : this.selected }
+                         }">
+                            <label class="block text-slate-300 text-sm font-bold mb-2 uppercase tracking-wide">Category:</label>
+                             
+                            <!-- Dropdown -->
+                            <select x-model="selected" class="bg-slate-900 border border-slate-700 rounded-lg w-full py-3 px-4 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors mb-3">
+                                <option value="Frontend">Frontend</option>
+                                <option value="Backend">Backend</option>
+                                <option value="Database">Database</option>
+                                <option value="Tools">Tools/DevOps</option>
+                                <option value="IoT">IoT & Hardware</option>
+                                <option value="Mobile">Mobile Development</option>
+                                <option value="Machine Learning">Machine Learning</option>
+                                <option value="AI">Artificial Intelligence</option>
+                                <option value="Other">Other / Custom</option>
                             </select>
+
+                            <!-- Custom Input (conditional) -->
+                            <div x-show="selected === 'Other'" x-transition 
+                                 x-cloak
+                                 class="mt-2">
+                                <input type="text" x-model="custom" placeholder="Enter custom category name..." 
+                                       class="bg-slate-800 border border-indigo-500/50 rounded-lg w-full py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+                            </div>
+
+                            <!-- Real submission input -->
+                            <input type="hidden" name="category" :value="finalVal">
                         </div>
 
                         <div class="flex items-center justify-between mt-8 pt-6 border-t border-slate-800">

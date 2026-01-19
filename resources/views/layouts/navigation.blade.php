@@ -18,18 +18,30 @@
                     <x-nav-link :href="route('admin.projects.index')" :active="request()->routeIs('admin.projects*')" class="text-white hover:text-indigo-400">
                         {{ __('Projects') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.skills.index')" :active="request()->routeIs('admin.skills*')" class="text-white hover:text-indigo-400">
-                        {{ __('Skills') }}
+                    <x-nav-link :href="route('admin.posts.index')" :active="request()->routeIs('admin.posts*')" class="text-white hover:text-indigo-400">
+                        {{ __('Posts') }}
                     </x-nav-link>
-                     <x-nav-link :href="route('admin.achievements.index')" :active="request()->routeIs('admin.achievements*')" class="text-white hover:text-indigo-400">
-                        {{ __('Achievements') }}
+                    <x-nav-link :href="route('admin.skills.index')" :active="request()->routeIs('admin.skills.*')" class="text-white hover:text-indigo-400">
+                    {{ __('Skills') }}
+                </x-nav-link>
+                <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.*')" class="text-white hover:text-indigo-400">
+                    {{ __('Categories') }}
+                </x-nav-link>
+                 <x-nav-link :href="route('admin.achievements.index')" :active="request()->routeIs('admin.achievements.*')" class="text-white hover:text-indigo-400">
+                    {{ __('Achievements') }}
+                </x-nav-link>
+                     <x-nav-link :href="route('admin.testimonials.index')" :active="request()->routeIs('admin.testimonials*')" class="text-white hover:text-indigo-400">
+                        {{ __('Testimonials') }}
+                    </x-nav-link>
+                     <x-nav-link :href="route('admin.resumes.index')" :active="request()->routeIs('admin.resumes*')" class="text-white hover:text-indigo-400">
+                        {{ __('Resumes/CV') }}
                     </x-nav-link>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
+                <x-dropdown align="right" width="48" contentClasses="py-1 bg-slate-800 border border-slate-700 overflow-hidden">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-4 py-2 border border-indigo-500/30 text-sm leading-4 font-bold rounded-lg text-indigo-100 bg-slate-800 hover:bg-slate-700 hover:text-white focus:outline-none transition ease-in-out duration-150 shadow-lg shadow-indigo-500/20">
                             <div>{{ Auth::user()->name }}</div>
@@ -43,22 +55,20 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <div class="bg-slate-800 border-t border-indigo-500/20">
-                            <x-dropdown-link :href="route('profile.edit')" class="text-slate-300 hover:bg-indigo-500/20 hover:text-white">
-                                {{ __('Profile') }}
+                        <x-dropdown-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
+                        </x-dropdown-link>
+
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
                             </x-dropdown-link>
-
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-dropdown-link :href="route('logout')" class="text-slate-300 hover:bg-indigo-500/20 hover:text-white"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </form>
-                        </div>
+                        </form>
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -83,6 +93,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.projects.index')" :active="request()->routeIs('admin.projects.index')" class="text-white hover:bg-indigo-500/20">
                 {{ __('Projects') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.resumes.index')" :active="request()->routeIs('admin.resumes.index')" class="text-white hover:bg-indigo-500/20">
+                {{ __('Resumes/CV') }}
             </x-responsive-nav-link>
         </div>
 
